@@ -1,12 +1,12 @@
 
-from flask import Flask, send_file
-import os
+const express = require('express');
+const path = require('path');
+const app = express();
 
-app = Flask(__name__)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Index.html'));
+});
 
-@app.route('/')
-def index():
-    return send_file('Index.html')
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000)
+app.listen(3000, '0.0.0.0', () => {
+  console.log('Server running on port 3000');
+});
